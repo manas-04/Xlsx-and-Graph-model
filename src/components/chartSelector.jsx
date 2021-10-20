@@ -5,6 +5,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
+import LineGraphOptions from "./lineOptions";
+
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -51,45 +53,66 @@ const StyledMenu = styled((props) => (
 export default function CustomizedMenus() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [line,setLine] = React.useState(false);
+  const [pie,setPie] = React.useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  }
+  const lineGraphhandler = () => {
+    setAnchorEl(null);
+    setLine(true);
+    setPie(false);
   };
+  const pieGraphHandler = () => {
+    setAnchorEl(null);
+    setLine(false);
+    setPie(true);
+  }
 
   return (
     <div>
-      <Button
-        id="demo-customized-button"
-        aria-controls="demo-customized-menu"
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        variant="contained"
-        disableElevation
-        onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-        style={{width:500}}
-      >
-        Please click and select the type of chart to be displayed.
-      </Button>
-      <StyledMenu
-        id="demo-customized-menu"
-        MenuListProps={{
-          "aria-labelledby": "demo-customized-button"
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <MenuItem style={{ width: "500px" }} onClick={handleClose} disableRipple>
-          Line Graph
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          Pie Chart
-        </MenuItem>
-      </StyledMenu>
+        <div>
+            <Button
+                id="demo-customized-button"
+                aria-controls="demo-customized-menu"
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                variant="contained"
+                disableElevation
+                onClick={handleClick}
+                endIcon={<KeyboardArrowDownIcon />}
+                style={{width:500}}
+            >
+                Please click and select the type of chart to be displayed.
+            </Button>
+            <StyledMenu
+                id="demo-customized-menu"
+                MenuListProps={{
+                "aria-labelledby": "demo-customized-button"
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+            >
+                <MenuItem style={{ width: "500px" }} onClick={lineGraphhandler} disableRipple>
+                Line Graph
+                </MenuItem>
+                <MenuItem onClick={pieGraphHandler} disableRipple>
+                Pie Chart
+                </MenuItem>
+            </StyledMenu>
+        </div>
+        <div>
+            {
+                line
+                ?<LineGraphOptions />
+                :null
+            }
+        </div>
     </div>
   );
 }

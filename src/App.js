@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import XLSX  from 'xlsx';
-import GraphBuilder from './components/testGraph';
 import InputBlock from './components/inputTaker';
 import CustomizedMenus from './components/chartSelector';
+import GraphBuilder from './components/testGraph';
 
 function App() {
 
@@ -18,16 +18,12 @@ function App() {
     if(file){
       const fileReader = new FileReader();
       fileReader.onload = (event)=>{
-        const data = event.target.result;
-        const workbook = XLSX.read(data,{type:"binary"});
+        const workbook = XLSX.read(event.target.result,{type:"binary"});
         workbook.SheetNames.forEach((sheet)=>{
           const rowObject = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
           setData(rowObject);
           setSubmit(true);
           // document.getElementById("jsonData").innerHTML = JSON.stringify(rowObject,undefined,4);
-          // if(rowObject){
-          //   setShowData(true);
-          // }
         })
       }
       fileReader.readAsBinaryString(file);
@@ -50,6 +46,9 @@ function App() {
         </div>
         :null
       }
+      {/* <GraphBuilder 
+        graphData={data}
+      /> */}
     </div>
   );
 }
