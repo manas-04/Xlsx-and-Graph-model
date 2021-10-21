@@ -40,9 +40,7 @@ function graphBuilder(props){
       data: array.slice(0,4)
     }
   };
-
 //   console.log(chartConfigs.dataSource.data);
-
     return (<ReactFC {...chartConfigs} />);
 }
 

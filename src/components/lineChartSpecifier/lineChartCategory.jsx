@@ -5,7 +5,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import LineChartCategory from "./lineChartSpecifier/lineChartCategory";
+import LineGraphOptions from "./lineOptions";
+import LineGraphByDateOptions from "./lineGraphByDateOptions";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,8 +54,8 @@ const StyledMenu = styled((props) => (
 export default function CustomizedMenus(props) {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [line,setLine] = React.useState(false);
-  const [pie,setPie] = React.useState(false);
+  const [product,setProduct] = React.useState(false);
+  const [date,setDate] = React.useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -64,13 +65,13 @@ export default function CustomizedMenus(props) {
   }
   const lineGraphhandler = () => {
     setAnchorEl(null);
-    setLine(true);
-    setPie(false);
+    setProduct(false);
+    setDate(true);
   };
-  const pieGraphHandler = () => {
+  const dateGraphHandler = () => {
     setAnchorEl(null);
-    setLine(false);
-    setPie(true);
+    setProduct(true);
+    setDate(false);
   }
   // console.log(props.fileData);
 
@@ -86,9 +87,9 @@ export default function CustomizedMenus(props) {
                 disableElevation
                 onClick={handleClick}
                 endIcon={<KeyboardArrowDownIcon />}
-                style={{width:500}}
+                style={{width:550,marginTop:30}}
             >
-                Please click and select the type of chart to be displayed.
+                Please select the type of line graph you want to see.
             </Button>
             <StyledMenu
                 id="demo-customized-menu"
@@ -99,18 +100,23 @@ export default function CustomizedMenus(props) {
                 open={open}
                 onClose={handleClose}
             >
-                <MenuItem style={{ width: "500px" }} onClick={lineGraphhandler} disableRipple>
-                  Line Graph
+                <MenuItem style={{ width: "550px" }} onClick={lineGraphhandler} disableRipple>
+                  Line Graph of all the responses of a Particular Date.
                 </MenuItem>
-                <MenuItem onClick={pieGraphHandler} disableRipple>
-                  Pie Chart
+                <MenuItem onClick={dateGraphHandler} disableRipple>
+                  Line Graph of a particular product over period of time.
                 </MenuItem>
             </StyledMenu>
         </div>
         <div>
             {
-                line
-                ?<LineChartCategory fileData={props.fileData}/>
+                date
+                ?<LineGraphByDateOptions fileData={props.fileData}/>
+                :null
+            }
+            {
+                product
+                ?<LineGraphOptions fileData={props.fileData}/>
                 :null
             }
         </div>

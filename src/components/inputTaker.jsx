@@ -1,27 +1,33 @@
 import React from 'react';
+import { Button,Input } from '@mui/material';
 
 function InputBlock(props){
-    return <div className="row">
-    <div className="col-md-4"></div>
-    <div className="col-md-3">
-        <input 
-          onChange={props.fileHandler}
-          className="form-control" 
-          type="file" 
-          id="input" 
-          accept=".xls, .xlsx"   
-        />
-    </div>
-    <div className="col-md-3">
-        <button 
-          className="btn btn-primary" 
+    return <center>
+    <div style={{display:'inline-flex',paddingTop:30}}>
+    <Button
+      variant="contained"
+      component="label"
+    >
+      Upload File
+      <input
+        type="file"
+        onChange={props.fileHandler}
+        id="input" 
+        accept=".xls, .xlsx"  
+        hidden
+      />
+    </Button>
+    <div style={{paddingLeft:20}}>
+        <Button
           id="button"
+          variant="contained"
           onClick={props.clickHandler}
         >
           Retrieve Data
-        </button>
+        </Button>
     </div>
   </div>
+  </center>
 }
 
 export default InputBlock;

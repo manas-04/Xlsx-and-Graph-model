@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import XLSX  from 'xlsx';
 import InputBlock from './components/inputTaker';
 import CustomizedMenus from './components/chartSelector';
-import GraphBuilder from './components/testGraph';
+// import GraphBuilder from './components/testGraph';
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
       {
         submit
         ?<div style={{marginTop:30,textAlign:"center"}}>
-          <CustomizedMenus />
+          <CustomizedMenus fileData={data}/>
         </div>
         :null
       }
