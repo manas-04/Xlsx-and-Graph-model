@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import LineChartCategory from "./lineChartSpecifier/lineChartCategory";
+import GraphByDateOptions from "./pieChartOption/dateSelector";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -112,6 +113,16 @@ export default function CustomizedMenus(props) {
                 line
                 ?<LineChartCategory fileData={props.fileData}/>
                 :null
+            }
+            {
+              pie
+              ?<div>
+                  <p style={{fontSize:20,marginBottom:0}}>
+                    Enter the date of which you want to see the data in a pie chart.
+                  </p>
+                  <GraphByDateOptions fileData={props.fileData} />
+              </div>
+              :null
             }
         </div>
     </div>

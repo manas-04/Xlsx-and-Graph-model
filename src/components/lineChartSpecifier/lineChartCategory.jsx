@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import LineGraphOptions from "./lineOptions";
-import LineGraphByDateOptions from "./lineGraphByDateOptions";
+import LineGraphByDateOptions from "./graphByDateOptions";
 
 const StyledMenu = styled((props) => (
   <Menu

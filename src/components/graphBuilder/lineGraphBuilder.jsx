@@ -1,4 +1,4 @@
-import React , {useState,useEffect} from "react";
+import React from "react";
 import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
 import Line2D from "fusioncharts/fusioncharts.charts";
@@ -25,14 +25,14 @@ function LineGraphBuilder(props){
 
   const chartConfigs = {
     type: "line", 
-    width: "900", 
+    width: "1000", 
     height: "400", 
     dataFormat: "json", 
     dataSource: {
       chart: {
         caption: "Bugs Analysis",
         // subCaption: "Last week",
-        xAxisName: "Date",
+        xAxisName: "Bugs Over the course of time",
         yAxisName: "Number of Bugs",
         lineThickness: "2",
         theme: "fusion"

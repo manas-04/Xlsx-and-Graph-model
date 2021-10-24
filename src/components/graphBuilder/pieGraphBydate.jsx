@@ -1,12 +1,12 @@
 import React from "react";
 import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
-import Line2D from "fusioncharts/fusioncharts.charts";
+import Pie3D from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 
-ReactFC.fcRoot(FusionCharts, Line2D, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Pie3D, FusionTheme);
 
-function LineGraphBuilderByDate(props){
+function PieGraphBuilderByDate(props){
 
     var array = [];
 
@@ -24,13 +24,13 @@ function LineGraphBuilderByDate(props){
     console.log(props.filter + ";");
 
   const chartConfigs = {
-    type: "line", 
+    type: "pie3d", 
     width: "900", 
     height: "400", 
     dataFormat: "json", 
     dataSource: {
       chart: {
-        caption: "Bugs Analysis",
+        caption: "Bugs Analysis through PieChart",
         // subCaption: "Last week",
         xAxisName: "Date",
         yAxisName: "Number of Bugs",
@@ -48,4 +48,4 @@ function LineGraphBuilderByDate(props){
     );
 }
 
-export default LineGraphBuilderByDate;
+export default PieGraphBuilderByDate;

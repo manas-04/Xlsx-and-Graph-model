@@ -27,6 +27,9 @@ function InputBlock(props){
         </Button>
     </div>
   </div>
+  <p style={{fontSize:15,color:"green"}}>
+    * Please Upload the file and then click on Retrieve Data.
+  </p>
   </center>
 }
 

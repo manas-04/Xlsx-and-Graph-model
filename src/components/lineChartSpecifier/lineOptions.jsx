@@ -13,6 +13,7 @@ function LineGraphOptions(props){
 
     function inputHandler(event){
         setFilter(event.target.value);
+        setShowGraph(false);
     }
 
     function submitHandler(event){
@@ -48,6 +49,7 @@ function LineGraphOptions(props){
             </Button>
         </Box>
         <p className={styles.warningp}>
+        {console.log(props.fileData)}
             * This is a prototype, please enter the same product name (without semi-colon) mentioned in the file whose graph you want to see.
         </p>
         {
