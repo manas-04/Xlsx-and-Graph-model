@@ -101,10 +101,10 @@ export default function CustomizedMenus(props) {
                 onClose={handleClose}
             >
                 <MenuItem style={{ width: "550px" }} onClick={lineGraphhandler} disableRipple>
-                  Line Graph of all the responses of a Particular Date.
+                  Line Graph of all the bugs on a Particular Date.
                 </MenuItem>
                 <MenuItem onClick={dateGraphHandler} disableRipple>
-                  Line Graph of a particular product over period of time.
+                  Line Graph of a particular product over the entire period of time.
                 </MenuItem>
             </StyledMenu>
         </div>

@@ -31,7 +31,15 @@ function App() {
   }
 
   return (
-    <div className="container mt-5">
+    <div 
+      className="container mt-5" 
+      style={
+        {
+          backgroundImage: 'url("https://www.transparenttextures.com/patterns/escheresque.png")',
+          height:"97.5vh",
+        }
+      }
+    >
       <InputBlock
         fileHandler = {fileHandler}
         clickHandler = {clickHandler}
