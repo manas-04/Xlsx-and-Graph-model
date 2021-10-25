@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import _ from "lodash";
 
 import styles from "./components.module.css";
 import LineGraphBuilder from "../graphBuilder/lineGraphBuilder";
@@ -12,7 +13,7 @@ function LineGraphOptions(props){
     const [showGraph,setShowGraph] = useState(false);
 
     function inputHandler(event){
-        setFilter(event.target.value);
+        setFilter(_.startCase(_.toLower(event.target.value)));
         setShowGraph(false);
     }
 
@@ -38,7 +39,7 @@ function LineGraphOptions(props){
                 label="Enter the Product Name" 
                 variant="standard"     
                 onChange={inputHandler}
-                value={filter}
+                // value={filter}
             />
             <Button 
                 variant="contained" 
@@ -49,7 +50,7 @@ function LineGraphOptions(props){
             </Button>
         </Box>
         <p className={styles.warningp}>
-        {console.log(props.fileData)}
+        {/* {console.log(props.fileData)} */}
             * This is a prototype, please enter the same product name (without semi-colon) mentioned in the file whose graph you want to see.
         </p>
         {

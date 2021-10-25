@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Fade } from "@mui/material";
 
 import LineChartCategory from "./lineChartSpecifier/lineChartCategory";
 import GraphByDateOptions from "./pieChartOption/dateSelector";
